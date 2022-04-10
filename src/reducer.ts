@@ -19,7 +19,7 @@ export default function todoReducer(state: IState, action: IAction) {
       return {
         ...state,
         todoList: state.todoList.map((todo) => {
-          return todo.id === payload
+          return todo.id === (payload as number)
             ? {
                 ...todo,
                 completed: !todo.completed,

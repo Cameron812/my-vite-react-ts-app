@@ -1,14 +1,13 @@
 import React, { useReducer } from 'react';
-
 import TodoInput from '../TodoInput';
 import TodoItem from './TodoItem';
 import todoReducer from '../../reducer';
 import { ITodo, ActionType } from '../../typings';
 
-const initialState = { todoList: [] };
 export default function TodoList() {
-  const [state, dispatch] = useReducer(todoReducer, initialState);
+  const [state, dispatch] = useReducer(todoReducer, { todoList: [] });
   const { todoList } = state;
+
   const handleAdd = (todo: ITodo) => {
     dispatch({ type: ActionType.ADD_ITEM, payload: todo });
   };

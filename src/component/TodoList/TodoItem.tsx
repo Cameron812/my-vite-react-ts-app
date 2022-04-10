@@ -1,11 +1,15 @@
 import React from 'react';
 import { ITodo } from '../../typings';
-interface IProps {
+interface ITodoProps {
   todo: ITodo;
   handleToggle: (id: number) => void;
   handleDelete: (id: number) => void;
 }
-export default function TodoItem({ todo, handleToggle, handleDelete }: IProps) {
+export default function TodoItem({
+  todo,
+  handleToggle,
+  handleDelete,
+}: ITodoProps) {
   const { completed, content, id } = todo;
   const toggleItem = () => handleToggle(id);
   const deleteItem = () => handleDelete(id);

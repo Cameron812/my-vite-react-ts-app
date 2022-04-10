@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 
 import { ITodo } from '../../typings/index';
-interface IProps {
+interface ITodoInputProps {
   todoList: ITodo[];
   handleAdd: (todo: ITodo) => void;
 }
-export default function TodoInput({ handleAdd, todoList }: IProps) {
+export default function TodoInput({ handleAdd, todoList }: ITodoInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const addItem = () => {
     const input = inputRef.current!.value.trim();
