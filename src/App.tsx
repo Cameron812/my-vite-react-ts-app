@@ -1,11 +1,57 @@
 import React from 'react';
-import TodoList from './component/TodoList';
-const App: React.FC = () => {
+import { Routes, Route, Outlet, Link } from 'react-router-dom';
+
+import ApplicationWithContext from './components/Application/Application';
+import HOC from './components/HOC/Application';
+
+const App = () => {
   return (
-    <div className="App">
-      <TodoList />
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<ApplicationWithContext />} />
+          <Route path="context" element={<ApplicationWithContext />} />
+          <Route path="hoc" element={<HOC />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
     </div>
   );
 };
 
+function Layout() {
+  return (
+    <div>
+      {/* A "layout route" is a good place to put markup you want to
+          share across all the pages on your site, like navigation. */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/context">useContext</Link>
+          </li>
+          <li>
+            <Link to="/hoc">HOC</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <hr />
+
+      {/* An <Outlet> renders whatever child route is currently active,
+          so you can think about this <Outlet> as a placeholder for
+          the child routes we defined above. */}
+      <Outlet />
+    </div>
+  );
+}
+function NoMatch() {
+  return (
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
+    </div>
+  );
+}
 export default App;

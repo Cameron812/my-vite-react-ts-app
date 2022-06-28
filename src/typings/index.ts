@@ -15,5 +15,11 @@ export interface IAction {
 export enum ActionType {
   ADD_ITEM = 'addItem',
   TOGGLE_ITEM = 'toggleItem',
-  DELETE_ITEM = 'deleteItem',
+  DELETE_ITEM = 'deleteItem'
+}
+
+export interface RGBColorType {
+  red: number;
+  green: number;
+  blue: number;
 }
