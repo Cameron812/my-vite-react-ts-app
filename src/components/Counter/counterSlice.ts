@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppDispatch, RootState } from '../../redux/store';
-
 interface CounterState {
   value: number;
 }
@@ -41,16 +40,11 @@ export const counterSlice = createSlice({
   }
 });
 export const selectCount = (state: RootState) => state.counter.value;
-export const {
-  increment,
-  decrement,
-  incrementByAmount,
-  reset
-} = counterSlice.actions;
+export const { increment, decrement, incrementByAmount, reset } =
+  counterSlice.actions;
 
-export const incrementAfterTimeout = (amount: number) => (
-  dispatch: AppDispatch
-) => {
-  setTimeout(() => dispatch(incrementByAmount(amount)), 1000);
-};
+export const incrementAfterTimeout =
+  (amount: number) => (dispatch: AppDispatch) => {
+    setTimeout(() => dispatch(incrementByAmount(amount)), 1000);
+  };
 export default counterSlice.reducer;
