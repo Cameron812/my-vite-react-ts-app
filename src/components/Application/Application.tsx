@@ -3,13 +3,13 @@ import React from 'react';
 import './index.scss';
 import { ColorSwatch } from './ColorSwatch';
 import { toRGB } from './utils';
-import { RGBContext } from './context';
+import { useContext } from './context';
 import ColorAdjustment from './ColorAdjustment';
 import { ColorInput } from './ColorInput';
 import { ColorSlider } from './ColorSlider';
 
 const ApplicationWithContext = () => {
-  const { ...rgb } = React.useContext(RGBContext);
+  const { ...rgb } = useContext();
   return (
     <main
       style={{

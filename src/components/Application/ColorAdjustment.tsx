@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { RGBContext } from './context';
+import { useContext } from './context';
 
 type AdjustmentType = {
   id: string;
@@ -12,7 +12,7 @@ type ColorAdjustmentType = {
 };
 
 export default function ColorAdjustment({ Adjustment }: ColorAdjustmentType) {
-  const { red, green, blue, dispatch } = React.useContext(RGBContext);
+  const { red, green, blue, dispatch } = useContext();
   const adjustRed = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'ADJUST_RED', payload: +event.target.value });
   };

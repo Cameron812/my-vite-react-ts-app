@@ -8,6 +8,7 @@ import { CharacterInformation } from './CharacterInformation';
 type WithCharacterType = {
   character: CharacterType;
 };
+
 const withCharacter = <T extends WithCharacterType>(
   Component: React.ComponentType<T>
 ) => {

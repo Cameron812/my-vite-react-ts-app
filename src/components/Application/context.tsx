@@ -1,12 +1,12 @@
-import React, { createContext } from 'react';
-
+import React from 'react';
+import { createContext } from './create-context';
 import { reducer, AdjustmentAction } from './reducer';
 import { RGBColorType } from '../../typings';
 
 type RGBContextType = RGBColorType & {
   dispatch: React.Dispatch<AdjustmentAction>;
 };
-export const RGBContext = createContext<RGBContextType>({} as RGBContextType);
+export const [useContext, Provider] = createContext<RGBContextType>();
 
 const initialState: RGBColorType = {
   red: 0,
@@ -19,9 +19,5 @@ export const RGBContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [rgb, dispatch] = React.useReducer(reducer, initialState);
-  return (
-    <RGBContext.Provider value={{ ...rgb, dispatch }}>
-      {children}
-    </RGBContext.Provider>
-  );
+  return <Provider value={{ ...rgb, dispatch }}>{children}</Provider>;
 };

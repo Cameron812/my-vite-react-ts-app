@@ -1,7 +1,7 @@
 import React from 'react';
-import { Routes, Route, Outlet, Link } from 'react-router-dom';
-
+import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import ApplicationWithContext from './components/Application/Application';
+import CounterApplication from './components/Counter/Application';
 import HOC from './components/HOC/Application';
 
 const App = () => {
@@ -12,6 +12,7 @@ const App = () => {
           <Route index element={<ApplicationWithContext />} />
           <Route path="context" element={<ApplicationWithContext />} />
           <Route path="hoc" element={<HOC />} />
+          <Route path="redux-counter" element={<CounterApplication />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
@@ -31,6 +32,9 @@ function Layout() {
           </li>
           <li>
             <Link to="/hoc">HOC</Link>
+          </li>
+          <li>
+            <Link to="/redux-counter">Counter</Link>
           </li>
         </ul>
       </nav>
