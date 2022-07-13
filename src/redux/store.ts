@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import CounterReducer from '../components/Counter/counterSlice';
+import { pokemonApi } from '../components/Pokemon/PokemonApi';
 
 export const store = configureStore({
   reducer: {
-    counter: CounterReducer
+    counter: CounterReducer,
+    [pokemonApi.reducerPath]: pokemonApi.reducer
   }
 });
 

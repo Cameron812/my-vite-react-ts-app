@@ -3,6 +3,7 @@ import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import ApplicationWithContext from './components/Application/Application';
 import CounterApplication from './components/Counter/Application';
 import HOC from './components/HOC/Application';
+import PokemonWithApplication from './components/Pokemon/Application';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Route path="context" element={<ApplicationWithContext />} />
           <Route path="hoc" element={<HOC />} />
           <Route path="redux-counter" element={<CounterApplication />} />
+          <Route path="rtk-query" element={<PokemonWithApplication />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
@@ -35,6 +37,9 @@ function Layout() {
           </li>
           <li>
             <Link to="/redux-counter">Counter</Link>
+          </li>
+          <li>
+            <Link to="/rtk-query">Pokemon</Link>
           </li>
         </ul>
       </nav>
